@@ -31,7 +31,7 @@ class Connection extends \Doctrine\DBAL\Driver\PDOConnection implements DriverCo
     /**
      * {@inheritdoc}
      */
-    public function rollback()
+    public function rollback(): bool
     {
         $this->exec('ROLLBACK TRANSACTION');
     }
@@ -39,7 +39,7 @@ class Connection extends \Doctrine\DBAL\Driver\PDOConnection implements DriverCo
     /**
      * {@inheritdoc}
      */
-    public function commit()
+    public function commit(): bool
     {
         $this->exec('COMMIT TRANSACTION');
     }
@@ -47,7 +47,7 @@ class Connection extends \Doctrine\DBAL\Driver\PDOConnection implements DriverCo
     /**
      * {@inheritdoc}
      */
-    public function beginTransaction()
+    public function beginTransaction(): bool
     {
         $this->exec('BEGIN TRANSACTION');
     }
